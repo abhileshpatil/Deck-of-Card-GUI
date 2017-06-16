@@ -91,9 +91,18 @@ public class Deck_Card {
          cd.display(m,card3);
     	}
     	else
-    	{
-    		System.out.println("Does not have number of cards in the deck you are trying to withdraw.");
+    	{   
+    		track=track-m;
+    		if(track>=52)
+    		{
+    		System.out.println("You have drawn all the cards");
     		break;
+    		}
+    		else
+    		{
+    		System.out.println("Does not have number of cards in the deck you are trying to withdraw.");
+    		continue;
+    		}
     	}
     	
     	
@@ -102,9 +111,10 @@ public class Deck_Card {
 		window.setSize(400,600);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JPanel panel=new JPanel();
+		JLabel label=new JLabel();
 		for(int y=0;y<m;y++)
 		{
-		JLabel label=new JLabel(new ImageIcon(((CardDeck) card3.get(y)).getCardImage()));
+		label=new JLabel(new ImageIcon(((CardDeck) card3.get(y)).getCardImage()));
 		label.setSize(400,500);
 		panel.add(label);
 		window.add(panel);
